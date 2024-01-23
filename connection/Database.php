@@ -9,7 +9,7 @@ class Connection
     {
         try {
             if (!self::$connection) {
-                $connect_var = new PDO("mysql:host={$config['server']};dbname={$config['dbname']}", $config['dbuser'], $config['dbpass']);
+                $connect_var = new PDO("mysql:host={$config['db']['server']};dbname={$config['db']['dbname']}", $config['db']['dbuser'], $config['db']['dbpass']);
                 $connect_var->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
                 $connect_var->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
                 self::$connection = $connect_var;

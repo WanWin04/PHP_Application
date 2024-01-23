@@ -1,7 +1,9 @@
 <?php
 return $config = [
-    'server' => 'localhost',
-    'dbname' => 'PHP_Application_userLogin',
-    'dbpass' => 'quangthang26',
-    'dbuser' => 'myadmin'
+    'db' => [
+        'server' => 'localhost',
+        'dbname' => 'PHP_Application_userLogin',
+        'dbpass' => 'quangthang26',
+        'dbuser' => 'myadmin'
+    ]
 ];

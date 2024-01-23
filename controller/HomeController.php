@@ -28,21 +28,21 @@ class HomeController
             $_SESSION['userLogInStatus'] = 1;
         }
 
-        $this->routeManager();
+        if (isset($_SESSION['userLogInStatus'])) {
+            return require_once('../view/dashboard.php');
+        }
+        if (isset($_GET['register'])) {
+            return require_once('../view/register.php');
+        }
+        if (isset($_GET['login']) || isset($_GET['logout'])) {
+            return require_once('../view/login.php');
+        }
+
+        return require_once('../view/login.php');
     }
 
     public function routeManager()
     {
-        if (isset($_SESSION['userLogInStatus'])) {
-            return require_once('view/dashboard.php');
-        }
-        if (isset($_GET['register'])) {
-            return require_once('view/register.php');
-        }
-        if (isset($_GET['login']) || isset($_GET['logout'])) {
-            return require_once('view/login.php');
-        }
-
-        return require_once('view/login.php');
+        
     }
 }
