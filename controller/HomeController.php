@@ -40,9 +40,4 @@ class HomeController
 
         return require_once('../view/login.php');
     }
-
-    public function routeManager()
-    {
-        
-    }
 }
