@@ -5,8 +5,20 @@ class HomeModel
 
     public function CheckUserLogin($username, $password)
     {
-        $query = "SELECT *FROM table_user WHERE usrname='{$username}' AND password='{$password}";
-        $stmt = $this->db->prepare($query)->execute();
-        return $stmt;
+        $query = "SELECT count(*) FROM tbl_user WHERE username = :username AND password = :password";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':password', $password);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+    }
+
+    public function UserRegister($username, $password) {
+        $query = "INSERT INTO tbl_user (username, password) VALUES (:username, :password)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':password', $password);
+        $stmt->execute();
+        return 1;
     }
 }
