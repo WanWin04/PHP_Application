@@ -1,24 +1,24 @@
 <?php
 
-if (isset($_GET['action'])) {
-    $request = $_GET['action'];
+$routeList = [];
 
-    if ($request == 'home') {
-        $route = "HomeController@indexAction";
+class Route
+{
+    public static function Add($routeName, $pointControllerAction)
+    {
+        $GLOBALS['routeList'][] = ['name' => $routeName, 'action' => $pointControllerAction];
     }
-    if ($request == 'login') {
-        $route = "UserController@LoginAction";
-    }
-    if ($request == 'logout') {
-        $route = "UserController@LogoutAction";
-    }
-    if ($request == 'register') {
-        $route = "UserController@RegisterAction";
-    }
-    if ($request == 'upload') {
-        $route = "FileController@UploadAction";
-    }
-    if ($request == 'fileUpload') {
-        $route = "FileController@UploadAction";
+
+    public static function Run()
+    {
+        $request = $_SERVER['REQUEST_URI'];
+
+        foreach ($GLOBALS['routeList'] as $r) {
+            if ($r['name'] == $request) {
+                return $r['action'];
+            }
+        }
+
+        return null;
     }
 }
