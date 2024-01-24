@@ -26,6 +26,8 @@ class UserController
             if ($checkUserLogin == 1) {
                 $_SESSION['userLogInStatus'] = 1;
                 return require_once('../view/dashboard.php');
+            } else {
+                $message = "User does not exist - Please register";
             }
         }
 

@@ -15,6 +15,11 @@
             <div id="login-row" class="row justify-content align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-form" class="col-md-12">
+                        <?php if (!empty($message)) { ?>
+                            <div class="alert alert-primary text-center" role="alert" id="msg">
+                                <?php echo $message; ?>
+                            </div>
+                        <?php } ?>
                         <form id="login-form" class="form" action="?action=login" method="POST">
                             <h3 class="txt-center text-info">Login</h3>
                             <!-- username  -->
