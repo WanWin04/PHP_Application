@@ -14,7 +14,7 @@ class FileController
             if (move_uploaded_file($_FILES["uploadFile"]["tmp_name"], $target_file)) {
                 $message = "The file" . htmlspecialchars(basename($_FILES["uploadFile"]["name"])) . "has been upload";
             } else {
-                $message = "ERROR";
+                $message = "ERROR - Try again";
             }
         }
 

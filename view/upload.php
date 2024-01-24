@@ -19,11 +19,11 @@
             <div class="col-12">
                 <div class="card mt-2 mb-3">
                     <div class="card-header">
-                        Upload Excel File
+                        Upload File
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="uploadFile">Select excel file :</label>
+                            <label for="uploadFile">Select file :</label>
                             <input type="file" name="uploadFile" id="uploadFile" required>
                         </div>
                     </div>
